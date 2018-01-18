@@ -7,6 +7,7 @@
     <meta name="author" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
     <!-- https://vuejs.org/v2/guide/#Getting-Started -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -15,7 +16,7 @@
   <body>
 
     <!-- https://vuejs.org/v2/guide/index.html -->
-    <div id="app">
+    <div   class="container" id="app">
       <!--
            TODO Show collection data. See js/script.js
            - Show collection Title
@@ -25,9 +26,30 @@
                - Display its "prompt" property in bold style
                - Display its "value" property in italic style
       -->
-
+      <h1 class="jumbotron">{{ d.collection.title }}</h1>
+      <div class="row">
+      <div   class="card  col-md-4" v-for="item in d.collection.items">
+        <div   class="card-body">
+      <ul>
+        
+        
+         <h5 class="card-title" v-for="elemento in item.data" v-if="elemento.name=='name'">{{elemento.value}}</h5>
+          <ul>
+          <li v-for="elemento in item.data" v-if="elemento.name!='name'">
+            <strong>{{elemento.prompt}}</strong>:<i>{{elemento.value}}</i>
+          </li>
+        </ul>
+        <ul>
+        <li > <a   class="btn btn-primary col-md-12 "  v-bind:href="item.href">{{item.href}}</a> </li>
+        </ul>
+        </ul>
+      </div>
+      </div>
+     
     </div>
 
+    </div>
+    
     <script src="js/script.js"></script>
   </body>
 
