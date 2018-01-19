@@ -34,7 +34,7 @@
       <ul>
         
         
-         <h5 class="card-title" v-for="elemento in item.data" v-if="elemento.name=='name'">{{elemento.value}}</h5>
+         <h5 class="card-title" >{{titulopelicula(item)}}</h5>
           <ul>
           <li v-for="elemento in item.data" v-if="elemento.name!='name' && elemento.name!='image'">
             <strong>{{elemento.prompt}}</strong>:<i>{{elemento.value}}</i>
