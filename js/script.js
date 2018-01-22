@@ -49,17 +49,33 @@ var app = new Vue({
     d: server_data
   },
   methods: {
-    titulopelicula: function(item)
+    damepropiedad: function(item,propiedad)
   {
     var resultado;
     for (var i=0;i<item.data.length;i++)
     {
-      if(item.data[i].name=='name')
+      if(item.data[i].name==propiedad)
       {
         resultado=item.data[i].value;
       }
     }
     return resultado;
+  },
+  buttonclick: function(event)
+  {
+    var boton= event.target;
+    var lista=boton.nextElementSibling;
+
+    if(boton.innerHTML== "Show"){
+    boton.innerHTML="Pedro president";
+    lista.style.display="none";
+    }
+    else{
+      boton.innerHTML="Show";
+      lista.style.display ="block";
+    }
+
   }
-  }
+}
+
 });
